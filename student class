@@ -1,0 +1,38 @@
+class student():
+    name = input("Enter your name:")
+    age = 14
+    schoolclass = "9th"
+    classteacher = "Ms. Priya"
+    # these are the class variables
+
+    #declaring the class function
+    def show_detalis(self):
+        print("\n The details of the students are:")
+        print('name:',self.name)
+        print('age:',self.age)
+        print('schoolclass',self.schoolclass)
+        print('classteacher',self.classteacher)
+
+    #create a function to change the student details
+    def change_details(self):
+        print("\n\nPlease update your age: ")
+        self.age=int(input())
+        print("\nPlease update the name of the student")
+        self.name=input()
+        print("\n Details updated")
+
+
+
+
+print(student.age) #to access variable we have to do classname.variablename
+
+
+#using objects we can call the class functions. Without it we cannot.
+#creating objects of class
+#syntax: objectname=classname()
+student1=student()
+
+#calling function to get the student details
+student1.show_detalis()
+student1.change_details()
+student1.show_detalis()
