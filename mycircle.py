@@ -24,7 +24,7 @@ class Mycircle:
     def grow(self,r):
           self.circle_rad += r
           pygame.draw.circle(self.circle_scr,
-                              self.surface_clr,
+                              self.circle_clr,
                               self.circle_pos,
                               self.circle_rad,
                               self.circle_wth)
@@ -35,7 +35,7 @@ wth = 3
 
 #creating object
 rcircle = Mycircle(red, (pos),rad,wth) 
-ycircle= Mycircle(yellow, (pos),rad,5) 
+ycircle= Mycircle(yellow, (pos),rad + 100,5) 
 
 running= True
 
@@ -48,4 +48,24 @@ while running:
              rcircle.draw()
              ycircle.draw()
              pygame.display.update()
+        elif event.type == pygame.MOUSEBUTTONUP:
+             rcircle.grow(6)     
+             ycircle.grow(3)
+             pygame.display.update()
+        elif event.type == pygame.MOUSEMOTION:
+             pos=pygame.mouse.get_pos()
+             gcircle = Mycircle(green, pos,5)
+             gcircle.draw()
+             pygame.display.update()
+                  
+               
              
+            
+         
+
+
+     
+
+
+        
+        
