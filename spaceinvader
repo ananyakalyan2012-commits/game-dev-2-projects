@@ -1,5 +1,4 @@
-
-import pygame
+     import pygame
 import os
 pygame.font.init()
 pygame.mixer.init()
@@ -73,7 +72,7 @@ def red_handle_movement(keys_pressed, red):
 def handle_bullets(yellow_bullets, red_bullets, yellow, red):
     for bullet in yellow_bullets:
         bullet.x += BULLET_VEL
-        if red. colliderect(bullet):
+        if red.colliderect(bullet):
             pygame.event.post(pygame.event.Event(RED_HIT))
             yellow_bullets.remove(bullet)
         elif bullet.x > WIDTH:
@@ -117,13 +116,13 @@ def main():
                 if event.key == pygame.K_LCTRL and len(yellow_bullets) < MAX_BULLETS:
                     bullet = pygame.Rect(yellow.x+ yellow.width,
                                           yellow.y + yellow.height//2,-2,20,15) 
-                    yellow_bullets.append()
+                    yellow_bullets.append(bullet)
                     BULLET_FIRE_SOUND.play()
 
                 if event.key == pygame. K_RCTRL and len(red_bullets) < MAX_BULLETS:
-                    bullet = pygame.Rect(red.x + red.width,
-                                         red.y + red.height//2,-2,20,15)
-                    red._bullets.append()
+                    bullet = pygame.Rect(red.x,
+                                         red.y + red.height//2,-2,10,5)
+                    red_bullets.append(bullet)
                     BULLET_FIRE_SOUND.play()
             if event.type == RED_HIT:
                 red_health -=1
@@ -155,3 +154,9 @@ def main():
     main()
 if __name__ == "__main__":
     main()
+    
+
+            
+
+        
+        
