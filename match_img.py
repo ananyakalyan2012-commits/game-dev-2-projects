@@ -16,7 +16,20 @@ screen.blit(subway,(150,200))
 screen.blit(temple,(150,300))
 screen.blit(candy,(150,400))
 
+#creating of text
+font=pygame.font.SysFont("Times New Roman",35)
+text1=font.render("Ludo",True,(0,0,255))
+text2=font.render("Subway",True,(255,0,0))
+text3=font.render("Temple",True,(0,255,0))
+text4=font.render("Candy",True,(0,0,0))
+
 #positioning of text
+screen.blit(text1,(400,100))
+screen.blit(text2,(400,200))
+screen.blit(text3,(400,300))
+screen.blit(text4,(400,400))
+
+pygame.display.update()
 
 running = True
 
@@ -35,4 +48,3 @@ while running:
             exit()
     pygame.display.update()
 
-    
