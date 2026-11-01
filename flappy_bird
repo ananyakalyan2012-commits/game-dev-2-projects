@@ -1,0 +1,17 @@
+import pygame
+import random
+pygame.init()
+
+# --- constants ---
+FPS = 60 #frames per second
+W,H = 800,600
+WHITE = (255,255,255)
+
+# ---Initialize Screen and Font ---
+screen = pygame.display.set_mode((W,H))
+pygame.display.set_caption("Flappy Bird")
+font = pygame.font.SysFont("Bauhaus 93",60)
+
+BG = pygame.image.load("flappy_bird\\img\\bg.png")  
+GROUND_IMG = pygame.image.load("flappy_bird\\img\\ground.png")
+RESTART_IMG =pygame.image.load("flappy_bird\\img\\restart.png")
