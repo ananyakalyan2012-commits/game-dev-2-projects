@@ -49,3 +49,52 @@ class bird(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(center=(x,y))
         self.vel = 0
         self.clicked = False
+
+    def update(self):
+        if FLYING:
+            self.vel = min(self.vel + 0.5,8)
+            self.rect.y += int(self.vel)
+        if not GAME_OVER:
+            if pygame.mouse.get_pressed ()[0] and not self.clicked:
+                self.clicked = True
+                self.vel = -10
+            if not pygame.mouse.get_pressed()[0]:
+                self.clicked = False
+            self.counter += 1
+            if self.counter > 5:
+                self.counter = 0
+                self.index = (self.index + 1) % len(self.images)
+            self.image = pygame.transform.rotate(self.images[self.index], self.vel * -2)
+        else:
+            self.image = pygame.transform.rotate(self.images[self.index],-90)
+
+
+
+        #________________________________
+
+
+
+# --- Sprite Group ---
+bird_group = pygame.sprite.Group()
+pipe_group = pygame.sprite.Group()
+#Create Instances/objects
+flappy = bird(100, H//2)
+
+bird_group.add(flappy)
+#restart_button = Button(W // 2 - 50, H// 2 -100, RESTART_IMG)
+clock = pygame.time.Clock()
+running = True
+
+while running:
+    clock.tick(FPS)
+    screen.blit(BG, (0,0))
+    if not GAME_OVER and FLYING:
+        time_now = pygame.time.get_ticks()
+
+    #__________________________
+
+    bird_group.update()
+    bird_group.draw(screen)
+    pipe_group.draw(screen)
+    draw_text(str(SCORE), font, WHITE, W//2, 20)
+    #____________________________
